@@ -8,6 +8,8 @@ define f = Character("Fortune Teller")
 
 image bg room = "FortuneTeller.png"
 
+image bg title = "Opening Slide.png"
+
 # The game starts here.
 
 label start:
@@ -53,7 +55,7 @@ label start:
     "Mirroring the swirling lit up patterns on the crystal ball. 
     "
 
-    f "What brings you here, my child?"
+    f "What brings you here?"
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -61,7 +63,7 @@ label start:
 
     # These display lines of dialogue.
 
-    f "Yo!"
+    f "Howdy"
 
     # This ends the game.
 
