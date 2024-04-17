@@ -2,8 +2,8 @@
 
 # suitors
 default tech_bro = 0
-default swampy = 0
-default ghost = 0
+default bigfoot = 0
+default ghost = 0 # la llorona
 default babayaga = 0
 default satan = 0
 
@@ -17,33 +17,32 @@ define f = Character("Fortune Teller")
 
 # backgrounds
 
+image bg clouds = "clouds.png"
 image bg room = "FortuneTeller.png"
 
-image bg title = "Opening Slide.png"
+image bg tech_bro_bg = "stocks.png"
+# image bg bigfoot_bg = 
+# image bg ghost_bg =
+# image bg babayaga_bg =
+# image bg satan_bg =
 
 # The game starts here.
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
-    scene bg black
+    scene bg clouds
     with fade
 
     "You find yourself ensnared in the throes of a loveless existence."
 
- 
-
     "After years of pining and sadness..."
- 
-    # fortune teller fades in
-    scene bg room
- 
 
     "the labyrinths of fate have led you to the doorstep of whispered promises and clandestine whispers— 
     "
+
+    # fortune teller fades in
+    scene bg room
+    with fade
 
     "You hear of a mysterious fortune teller who can take you out of your misery. 
     "
@@ -76,45 +75,134 @@ label start:
 
     f "Howdy"
 
-    # choices
-    f "You find yourself lost in the woods… What do you do next?"
+    # Start Questionnaire
 
-    menu: 
-        "Climb to a high vantage point": #(tech bro) 
+    # Question 1
+    f "Pray tell me... what virtue do you hold close to your heart?"
+    menu:
+        "Ambition":
             $ tech_bro += 1
-        "Find the closest water body": # (Swamp Thing) 
-            $ swampy += 1
-        "Give up": # (ghost?) 
+        "Justice":
+            $ satan += 1
+        "Sustainability":
+            $ bigfoot += 1
+        "Wisdom":
+            $ babayaga += 1
+        "Devotion":
             $ ghost += 1
-        "Find food and shelter": # (baba yaga) 
+
+    # Question 2
+    f "What kind of soul would you like to befriend?"
+    menu:
+        "Someone with a wild spirit":
+            $ satan += 1
+        "A foodie":
+            $ babayaga += 1
+        "A self-proclaimed Slytherin":
+            $ tech_bro += 1
+        "An empath":
+            $ ghost += 1
+        "I don't need friends":
+            $ bigfoot += 1
+
+    # Question 3
+    f "You find yourself with a rare moment of reprieve. How will you spend your time?"
+    menu:
+        "Lounging in a warm sauna":
+            $ satan += 1
+        "Working on a nice cozy DIY project":
+            $ babayaga += 1
+        "Quality time with family":
+            $ ghost += 1
+        "Hiking by myself":
+            $ bigfoot += 1
+        "Top golf":
+            $ tech_bro += 1
+
+    # Question 4
+    f "You look through a keyhole in a dimly lit room, what do you see?"
+    menu: 
+        "A room on fire":
+            $ satan += 1
+        "Home":
+            $ ghost += 1
+        "A lush open field with flowers strewn about":
+            $ bigfoot += 1
+        "A game room with FIFA loaded up":
+            $ tech_bro += 1
+        "A kitchen stocked with every ingredient imaginable":
+            $ babayaga += 1
+
+    # Question 5
+    f "Now my child, I'll tell you a story, and you answer how you see fit."
+    f "You find yourself lost in the woods... What do you do next?"
+    menu: 
+        "Climb to a high vantage point": 
+            $ tech_bro += 1
+        "Find the closest body of water": 
+            $ ghost += 1
+        "Find food and shelter": 
             $ babayaga +=1
-        "Set it on fire": # (satan) 
+        "Set it on fire": 
+            $ satan += 1
+        "I feel at home...":
+            $ bigfoot += 1
+
+    # Question 6
+    f "You hear rustling from a nearby bush. What emerges to greet you?"
+    menu:
+        "A deer":
+            $ bigfoot += 1
+        "A dog!":
+            $ tech_bro += 1
+        "A ram":
+            $ satan += 1
+        "Another person, lost in the woods":
+            $ babayaga += 1
+        "It was just the wind":
+            $ ghost += 1
+
+    # Question 7
+    f "You've finally found your way out of the woods. What do you do first?"
+    menu:
+        "Cry tears of relief":
+            $ ghost += 1
+        "Eat a hearty meal":
+            $ babayaga += 1
+        "Check on your stonks":
+            $ tech_bro += 1
+        "Run back into the woods! I miss it already!":
+            $ bigfoot += 1
+        "Take vengeance on whoever got you lost in the first place":
             $ satan += 1
 
-    # create order of 
-    # Original list of tuples
-    $ suitors = [("Tech Bro", tech_bro), ("Swamp Creature", swampy), ("Ghost", ghost), ("Baba Yaga", babayaga), ("Satan", satan)]
+    # End Questionnaire
+
+    f "Ooh! I see some exciting things in your future!"
+    f "You'll find a suitor soon... They are just around the corner..."
+
+    # CALCULATE COMPATABILITY #
+    # Create list of suitors
+    $ suitors = [("Tech Bro", tech_bro), ("Bigfoot", bigfoot), ("Ghost", ghost), ("Baba Yaga", babayaga), ("Satan", satan)]
     
-    # Sorting by the second element of each tuple (points)
+    # Sorting by the second element of each tuple (compatability points, highest to lowest)
     $ suitors.sort(key=lambda x: x[1], reverse=True)
     
-    # Assigning with the sorted list
+    # Assigning the sorted list
     $ suitorsInOrder = suitors
-    
-    "[suitorsInOrder]"
-    "[suitorsInOrder[0][0]]"
 
+    # Current suitor is the first suitor in the list
     $ current_suitor = suitorsInOrder[0][0]
 
     if current_suitor == "Tech Bro":
         jump tech_bro_ending
-    elif current_suitor = "Swamp Creature":
-        jump swampy_ending
-    elif current_suitor = "Ghost":
+    elif current_suitor == "Bigfoot":
+        jump bigfoot_ending
+    elif current_suitor == "Ghost":
         jump ghost_ending
-    elif current_suitor = "Baba Yaga":
+    elif current_suitor == "Baba Yaga":
         jump babayaga_ending
-    elif current_suitor = "Satan":
+    elif current_suitor == "Satan":
         jump satan_ending
 
     # This ends the game.
@@ -124,11 +212,20 @@ label start:
     label tech_bro_ending:
         f "You should be with a tech bro"
 
+        scene bg tech_bro_bg
+        with fade
+        f "A tech bro!"
+
         # This ends the game.
         return
 
-    label swampy_ending:
-        f "You should be with a swamp creature"
+    label bigfoot_ending:
+        f "You should be with a Bigfoot"
+
+        scene bg bigfoot_bg
+        with fade
+
+        f "Bigfoot!"
 
         # This ends the game.
         return
@@ -136,19 +233,39 @@ label start:
     label ghost_ending:
         f "You should be with a ghost"
 
+        scene bg ghost_bg
+        with fade
+
+        f "La Llorona"
+
         # This ends the game.
         return
 
 
     label babayaga_ending:
-        f "You should be with Baba Yaga"
+        f "Enchantress of wisdom, with a penchant for creating a quirky cozy surrounding for herself."
+        f "She loves fried food and she longs to welcome you into her fantastical home and her heart."
+        f "Your eternal life partner is none other than..."
+
+        scene bg babayaga_bg
+        with fade
+
+        f "Baba Yaga!"
 
         # This ends the game.
         return
 
 
     label satan_ending:
-        f "You should be with satan"
+        f "Dark allure, fiery passion..."
+        f "He seeks a soul bold enough for his eternal dance..."
+        f "Oh wait, did I say eternal? Sorry I meant infernal dance."
+        f "Your life partner is none other than..."
+
+        scene bg satan_bg
+        with fade
+
+        f "Satan!"
 
         # This ends the game.
         return

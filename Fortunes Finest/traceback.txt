@@ -2,14 +2,14 @@
 
 While running game code:
   File "game/script.rpy", line 109, in script
-    if (current_suitor) = "Tech Bro":
-SyntaxError: invalid syntax (game/script.rpy, line 109)
+    if current_suitor is "Tech Bro":
+SyntaxError: invalid syntax (game/script.rpy, line 111)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "game/script.rpy", line 109, in script
-    if (current_suitor) = "Tech Bro":
+    if current_suitor is "Tech Bro":
   File "C:\Users\meganschmid\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1842, in execute
     if renpy.python.py_eval(condition):
   File "C:\Users\meganschmid\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1207, in py_eval
@@ -20,9 +20,9 @@ Full traceback:
     raise orig_e
   File "C:\Users\meganschmid\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1073, in py_compile
     tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
-SyntaxError: invalid syntax (game/script.rpy, line 109)
+SyntaxError: invalid syntax (game/script.rpy, line 111)
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 Fortune's Finest 1.0
-Tue Apr 16 19:37:11 2024
+Wed Apr 17 14:00:07 2024
