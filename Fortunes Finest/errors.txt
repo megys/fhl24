@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 56: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-        f "What brings you here, my child?""
+File "game/script.rpy", line 95: expected statement.
+    suitors = [("Tech Bro", tech_bro), ("Swamp Creature", swampy), ("Ghost", ghost), ("Baba Yaga", babayaga), ("Satan", satan)]
+            ^
+
+File "game/script.rpy", line 98: expected statement.
+    suitors.sort(key=lambda x: x[1])
+                                    ^
+
+File "game/script.rpy", line 101: expected statement.
+    print("Sorted by Age:", suitors)
+                                    ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Tue Apr 16 14:08:54 2024
+Tue Apr 16 19:21:30 2024

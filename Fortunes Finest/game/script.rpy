@@ -1,5 +1,16 @@
 ﻿# The script of the game goes in this file.
 
+# suitors
+default tech_bro = 0
+default swampy = 0
+default ghost = 0
+default babayaga = 0
+default satan = 0
+
+default suitorsInOrder = []
+default current_suitor = "no one"
+default suitorIndex = 0
+
 # characters
 
 define f = Character("Fortune Teller")
@@ -65,6 +76,82 @@ label start:
 
     f "Howdy"
 
-    # This ends the game.
+    # choices
+    f "You find yourself lost in the woods… What do you do next?"
 
+    menu: 
+        "Climb to a high vantage point": #(tech bro) 
+            $ tech_bro += 1
+        "Find the closest water body": # (Swamp Thing) 
+            $ swampy += 1
+        "Give up": # (ghost?) 
+            $ ghost += 1
+        "Find food and shelter": # (baba yaga) 
+            $ babayaga +=1
+        "Set it on fire": # (satan) 
+            $ satan += 1
+
+    # create order of 
+    # Original list of tuples
+    $ suitors = [("Tech Bro", tech_bro), ("Swamp Creature", swampy), ("Ghost", ghost), ("Baba Yaga", babayaga), ("Satan", satan)]
+    
+    # Sorting by the second element of each tuple (points)
+    $ suitors.sort(key=lambda x: x[1], reverse=True)
+    
+    # Assigning with the sorted list
+    $ suitorsInOrder = suitors
+    
+    "[suitorsInOrder]"
+    "[suitorsInOrder[0][0]]"
+
+    $ current_suitor = suitorsInOrder[0][0]
+
+    if current_suitor == "Tech Bro":
+        jump tech_bro_ending
+    elif current_suitor = "Swamp Creature":
+        jump swampy_ending
+    elif current_suitor = "Ghost":
+        jump ghost_ending
+    elif current_suitor = "Baba Yaga":
+        jump babayaga_ending
+    elif current_suitor = "Satan":
+        jump satan_ending
+
+    # This ends the game.
     return
+
+
+    label tech_bro_ending:
+        f "You should be with a tech bro"
+
+        # This ends the game.
+        return
+
+    label swampy_ending:
+        f "You should be with a swamp creature"
+
+        # This ends the game.
+        return
+
+    label ghost_ending:
+        f "You should be with a ghost"
+
+        # This ends the game.
+        return
+
+
+    label babayaga_ending:
+        f "You should be with Baba Yaga"
+
+        # This ends the game.
+        return
+
+
+    label satan_ending:
+        f "You should be with satan"
+
+        # This ends the game.
+        return
+
+
+
