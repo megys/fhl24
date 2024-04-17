@@ -21,10 +21,10 @@ image bg clouds = "clouds.png"
 image bg room = "FortuneTeller.png"
 
 image bg tech_bro_bg = "stocks.png"
-# image bg bigfoot_bg = 
+image bg bigfoot_bg = "bigfoot.png"
 # image bg ghost_bg =
-# image bg babayaga_bg =
-# image bg satan_bg =
+image bg babayaga_bg = "FortuneTeller.png"
+image bg satan_bg = "satan.png"
 
 # The game starts here.
 
@@ -210,7 +210,7 @@ label start:
 
 
     label tech_bro_ending:
-        f "You should be with a tech bro"
+        f "You should be with..."
 
         scene bg tech_bro_bg
         with fade
@@ -220,7 +220,7 @@ label start:
         return
 
     label bigfoot_ending:
-        f "You should be with a Bigfoot"
+        f "You should be with..."
 
         scene bg bigfoot_bg
         with fade
@@ -231,12 +231,12 @@ label start:
         return
 
     label ghost_ending:
-        f "You should be with a ghost"
+        f "You should be with..."
 
         scene bg ghost_bg
         with fade
 
-        f "La Llorona"
+        f "La Llorona!"
 
         # This ends the game.
         return
