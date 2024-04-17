@@ -18,11 +18,11 @@ define f = Character("Fortune Teller")
 # backgrounds
 
 image bg clouds = "clouds.png"
-image bg room = "FortuneTeller.png"
+image bg room = "FortuneTellerNew.png"
 
 image bg tech_bro_bg = "stocks.png"
 image bg bigfoot_bg = "bigfoot.png"
-# image bg ghost_bg =
+image bg ghost_bg = "Ghost.png"
 image bg babayaga_bg = "FortuneTeller.png"
 image bg satan_bg = "satan.png"
 
@@ -65,15 +65,8 @@ label start:
     "Mirroring the swirling lit up patterns on the crystal ball. 
     "
 
-    f "What brings you here?"
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    # These display lines of dialogue.
-
     f "Howdy"
+
 
     # Start Questionnaire
 
@@ -205,30 +198,32 @@ label start:
     elif current_suitor == "Satan":
         jump satan_ending
 
-    # This ends the game.
-    return
+    jump end_game
 
 
     label tech_bro_ending:
-        f "You should be with..."
+        f "A seeker of adventure, driven and ambitious."
+        f "He strives to optimize his life and his code."
+        f "The two of you are sure to be an optimal match."
+        f "Your life partner is none other than..."
 
         scene bg tech_bro_bg
         with fade
         f "A tech bro!"
 
-        # This ends the game.
-        return
+        jump end_game
 
     label bigfoot_ending:
-        f "You should be with..."
+        f "You like the outdoors and appreciate solitude."
+        f "But even the ones who enjoy their own company likes companions from time to time."
+        f "I think you will be happy to run away with..."
 
         scene bg bigfoot_bg
         with fade
 
         f "Bigfoot!"
 
-        # This ends the game.
-        return
+        jump end_game
 
     label ghost_ending:
         f "You should be with..."
@@ -238,8 +233,7 @@ label start:
 
         f "La Llorona!"
 
-        # This ends the game.
-        return
+        jump end_game
 
 
     label babayaga_ending:
@@ -252,8 +246,7 @@ label start:
 
         f "Baba Yaga!"
 
-        # This ends the game.
-        return
+        jump end_game
 
 
     label satan_ending:
@@ -266,6 +259,11 @@ label start:
         with fade
 
         f "Satan!"
+
+        jump end_game
+
+    label end_game:
+        "Thank you for playing our game! Hope you enjoyed :)"
 
         # This ends the game.
         return
