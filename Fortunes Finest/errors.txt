@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 80: expected ':' not found.
-    menu f "You find yourself lost in the woods… What do you do next?": 
-           ^
+File "game/script.rpy", line 33: play requires a file
+    play main_menu_music 
+                         ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Wed Apr 17 14:01:44 2024
+Wed Apr 17 16:08:19 2024

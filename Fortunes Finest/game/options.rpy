@@ -47,9 +47,9 @@ define build.name = "FortunesFinest"
 ## to the player by default. Setting one of these to False will hide the
 ## appropriate mixer.
 
-define config.has_sound = True
+define config.has_sound = False
 define config.has_music = True
-define config.has_voice = True
+define config.has_voice = False
 
 
 ## To allow the user to play a test sound on the sound or voice channel,
@@ -63,7 +63,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.mp3"
+define config.main_menu_music = "music/fortunetitlemusic.wav"
 
 
 ## Transitions #################################################################

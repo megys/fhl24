@@ -23,50 +23,33 @@ image bg room = "FortuneTellerNew.png"
 image bg tech_bro_bg = "stocks.png"
 image bg bigfoot_bg = "bigfoot.png"
 image bg ghost_bg = "Ghost.png"
-image bg babayaga_bg = "FortuneTeller.png"
+image bg babayaga_bg = "BabyYaga.png"
 image bg satan_bg = "satan.png"
 
 # The game starts here.
 
 label start:
 
+    play music "music/fortunetitlemusic.wav" fadein 1.0 fadeout 2.0 loop
+
     scene bg clouds
     with fade
 
     "You find yourself ensnared in the throes of a loveless existence."
 
-    "After years of pining and sadness..."
-
-    "the labyrinths of fate have led you to the doorstep of whispered promises and clandestine whispers— 
-    "
+    "After years of pining and sadness, the labyrinths of fate have led you to the doorstep of whispered promises."
 
     # fortune teller fades in
     scene bg room
     with fade
 
-    "You hear of a mysterious fortune teller who can take you out of your misery. 
-    "
+    "You hear of a mysterious fortune teller who can take you out of your misery by giving you a peek into your future."
     
-    "By giving you a peek into what the universe holds for you. 
-    "
+    "No earthly treasures are sought, no material offerings to appease her ancient wisdom—only the raw honesty that resides within your heart."
     
-    "Beneath the watchful gaze of the fortune teller, every word uttered carries the weight of consequence. 
-    "
-    
-    "No earthly treasures are sought, no material offerings to appease her ancient wisdom—only the raw honesty that resides within your heart. 
-    "
-    
-    "And so, with bated breath and trembling resolve, you surrender yourself to the mercy of fate, placing your trust in the hands of the fortune teller… 
-    "
+    "And so, with bated breath and trembling resolve, you surrender yourself to the mercy of fate, placing your trust in the hands of the fortune teller..."
 
-    "She closes her eyes and mumbles to herself and when she open them again they are milky and distant. 
-    "
-
-    "Mirroring the swirling lit up patterns on the crystal ball. 
-    "
-
-    f "Howdy"
-
+    f "Howdy!"
 
     # Start Questionnaire
 
@@ -85,6 +68,7 @@ label start:
             $ ghost += 1
 
     # Question 2
+    f "I see..."
     f "What kind of soul would you like to befriend?"
     menu:
         "Someone with a wild spirit":
@@ -99,6 +83,7 @@ label start:
             $ bigfoot += 1
 
     # Question 3
+    f "Hmm..."
     f "You find yourself with a rare moment of reprieve. How will you spend your time?"
     menu:
         "Lounging in a warm sauna":
@@ -113,6 +98,7 @@ label start:
             $ tech_bro += 1
 
     # Question 4
+    f "Oh, interesting!"
     f "You look through a keyhole in a dimly lit room, what do you see?"
     menu: 
         "A room on fire":
@@ -142,7 +128,7 @@ label start:
             $ bigfoot += 1
 
     # Question 6
-    f "You hear rustling from a nearby bush. What emerges to greet you?"
+    f "As you continue to walk through the forest, you hear rustling from a nearby bush. What emerges to greet you?"
     menu:
         "A deer":
             $ bigfoot += 1
@@ -156,7 +142,7 @@ label start:
             $ ghost += 1
 
     # Question 7
-    f "You've finally found your way out of the woods. What do you do first?"
+    f "After another hour of wandering, you've finally found your way out of the woods. What do you do first?"
     menu:
         "Cry tears of relief":
             $ ghost += 1
@@ -200,6 +186,7 @@ label start:
 
     jump end_game
 
+    # ENDINGS #
 
     label tech_bro_ending:
         f "A seeker of adventure, driven and ambitious."
@@ -226,7 +213,10 @@ label start:
         jump end_game
 
     label ghost_ending:
-        f "You should be with..."
+        f "You seem to go for the shy, quiet ones, who are maybe a bit sad."
+        f "Someone who is family oriented and in touch with her emotions."
+        f "This one fits your heart's desires perfectly."
+        f "Your eternal life partner is none other than..."
 
         scene bg ghost_bg
         with fade
