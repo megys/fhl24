@@ -30,7 +30,7 @@ image bg satan_bg = "satan.png"
 
 label start:
 
-    play music "music/fortunetitlemusic.wav" fadein 1.0 fadeout 2.0 loop
+    play music "music/fortunebackgroundmusic.wav" fadein 1.0 fadeout 2.0 loop
 
     scene bg clouds
     with fade
